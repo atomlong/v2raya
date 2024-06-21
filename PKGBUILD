@@ -1,7 +1,7 @@
 # Maintainer: mzz2017 <mzz@tuta.io>
 
 pkgname=v2raya
-pkgver=2.2.5.2
+pkgver=2.2.5.6
 pkgrel=1
 install=.INSTALL
 pkgdesc="A web GUI client of Project V which supports VMess, VLESS, SS, SSR, Trojan, Tuic and Juicity protocols"
@@ -16,8 +16,8 @@ backup=("etc/default/v2raya")
 
 build() {
     cd "$srcdir/v2rayA-$pkgver/gui"
-    yarn --check-files
-    OUTPUT_DIR="$srcdir/v2rayA-$pkgver/service/server/router/web" yarn build
+    yarn --check-files --ignore-engines
+    OUTPUT_DIR="$srcdir/v2rayA-$pkgver/service/server/router/web" yarn --ignore-engines build
 
     cd "$srcdir/v2rayA-$pkgver/service"
     export GO111MODULE=on
